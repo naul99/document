@@ -1,0 +1,19 @@
+ down: https://strawberryperl.com/
+ down: bugzilla
+ cmd: perl checksetp.
+
+ edit file localconifg
+ edit file .cgi: #!C:\Strawberry\perl\bin\perl.exe -T
+
+ add text in the file httpd.conf for apache
+ <Directory "C:/wamp64/www/bugzilla">
+	Options Indexes FollowSymLinks ExecCGI
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+	AddHandler cgi-script .cgi
+	ScriptInterpreterSource Registry-Strict
+	DirectoryIndex index.html index.html.var index.cgi
+</Directory>
+
+restart apache
